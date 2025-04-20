@@ -70,11 +70,10 @@ class Scanning(Node):
 
         self.count +=self.direction
 
-    def Stepper(self,angle):
-        if 0 <= angle <= 180:
-            angle_str = f"{angle}\n"
-            self.serial.write(angle_str.encode())  
-            self.get_logger().info(f'Sent angle: {angle}')
+    def Stepper(self,dir):
+        angle_str = f"{dir}\n"
+        self.serial.write(angle_str.encode())  
+        self.get_logger().info(f'Sent angle: {dir}')
             
 def main():
     rclpy.init()
